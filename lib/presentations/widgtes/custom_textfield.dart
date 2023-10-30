@@ -27,11 +27,10 @@ class CustomTextFieldWidget extends StatefulWidget {
 }
 
 class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
-  bool passwordVisibility = true;
+  bool passwordVisibility = false;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      // maxLines: widget.maxLines,
       controller: widget.textcontroller,
       obscureText: passwordVisibility,
       validator: widget.validator,
