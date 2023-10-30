@@ -297,17 +297,27 @@ class StudentDetails extends StatelessWidget {
                               backgroundColor: MaterialStatePropertyAll(
                             Color.fromARGB(255, 203, 94, 222),
                           )),
-                          onPressed: () async {
+                          onPressed: () {
                             if (formKey.currentState!.validate()) {
                               formKey.currentState!.save();
                               final FormModel model = FormModel(
-                                  name: usernameController.text,
-                                  whatsappNumber: numberController.text,
-                                  email: emailController.text,
-                                  address: addressController.text,
-                                  mobile: contactController.text,
-                                  password: passwordController.text);
-                              await saveUser(model);
+                                name: usernameController.text,
+                                whatsappNumber: numberController.text,
+                                email: emailController.text,
+                                address: addressController.text,
+                                mobile: contactController.text,
+                                password: passwordController.text,
+                              );
+
+                              // Call the saveUser function, assuming it doesn't return a Future
+                              saveUser(model);
+
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text("Success! Data saved."),
+                                  backgroundColor: tPurpleLight,
+                                ),
+                              );
                             }
                           },
                           child: const Text(
