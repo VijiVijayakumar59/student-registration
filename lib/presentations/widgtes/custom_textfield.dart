@@ -27,18 +27,18 @@ class CustomTextFieldWidget extends StatefulWidget {
 }
 
 class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
-  bool passwordVisibility = false;
+  bool passwordVisibility = true;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      maxLines: widget.maxLines,
+      // maxLines: widget.maxLines,
       controller: widget.textcontroller,
       obscureText: passwordVisibility,
       validator: widget.validator,
       textInputAction: widget.textInputAction,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.all(1.8),
-        border: OutlineInputBorder(
+        contentPadding: const EdgeInsets.all(1.8),
+        border: const OutlineInputBorder(
           borderSide: BorderSide(color: tBlackColor),
         ),
         suffixIcon: widget.isPassword

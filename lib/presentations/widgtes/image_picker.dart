@@ -1,5 +1,5 @@
 import 'dart:io';
-
+import 'package:path/path.dart' as p;
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:studentlogin/utils/constants.dart/colors.dart';
@@ -22,7 +22,7 @@ class ImagePickerButtonState extends State<ImagePickerButton> {
     if (pickTheImage != null) {
       setState(() {
         pickedImage = PickedFile(pickTheImage.path);
-        imageName = pickedImage!.path; // Get the image name
+        imageName = p.basename(pickedImage!.path); // Get the image name
       });
     }
   }
@@ -30,7 +30,7 @@ class ImagePickerButtonState extends State<ImagePickerButton> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: <Widget>[
+      children: [
         ElevatedButton(
           style: const ButtonStyle(
               backgroundColor: MaterialStatePropertyAll(
