@@ -55,6 +55,7 @@ class StudentDetails extends StatelessWidget {
                     height: MediaQuery.of(context).size.height * 0.01,
                   ),
                   CustomTextFieldWidget(
+                    textInputAction: TextInputAction.next,
                     placeHolder: "Student name",
                     textcontroller: nameController,
                     validator: (value) {
@@ -85,6 +86,7 @@ class StudentDetails extends StatelessWidget {
                     height: MediaQuery.of(context).size.height * 0.01,
                   ),
                   CustomTextFieldWidget(
+                    textInputAction: TextInputAction.next,
                     keyboardType: TextInputType.number,
                     placeHolder: "whatsapp number",
                     textcontroller: numberController,
@@ -108,6 +110,7 @@ class StudentDetails extends StatelessWidget {
                     height: MediaQuery.of(context).size.height * 0.01,
                   ),
                   CustomTextFieldWidget(
+                    textInputAction: TextInputAction.next,
                     keyboardType: TextInputType.emailAddress,
                     placeHolder: "eg:abc@gmail.com",
                     textcontroller: emailController,
@@ -160,6 +163,7 @@ class StudentDetails extends StatelessWidget {
                     height: MediaQuery.of(context).size.height * 0.01,
                   ),
                   CustomTextFieldWidget(
+                    textInputAction: TextInputAction.next,
                     placeHolder: "guardian name",
                     textcontroller: guardianController,
                   ),
@@ -173,6 +177,7 @@ class StudentDetails extends StatelessWidget {
                     height: MediaQuery.of(context).size.height * 0.01,
                   ),
                   CustomTextFieldWidget(
+                    textInputAction: TextInputAction.next,
                     placeHolder: "contact number",
                     textcontroller: contactController,
                     validator: (value) {
@@ -220,6 +225,7 @@ class StudentDetails extends StatelessWidget {
                     height: MediaQuery.of(context).size.height * 0.01,
                   ),
                   CustomTextFieldWidget(
+                    textInputAction: TextInputAction.next,
                     placeHolder: "Username",
                     textcontroller: usernameController,
                     validator: (value) {
@@ -242,23 +248,19 @@ class StudentDetails extends StatelessWidget {
                     height: MediaQuery.of(context).size.height * 0.01,
                   ),
                   CustomTextFieldWidget(
+                    textInputAction: TextInputAction.next,
                     placeHolder: "Enter your password",
                     textcontroller: passwordController,
                     validator: (value) {
                       if (value!.isEmpty) {
                         return "Enter Your Password";
-                      } else if (!RegExp(r'[A-Z]').hasMatch(value) ||
-                          !RegExp(r'[a-z]').hasMatch(value) ||
-                          !RegExp(r'[0-9]').hasMatch(value) ||
-                          !RegExp(r'[!@#\$%^&*]').hasMatch(value)) {
-                        return "Password should contain at least one uppercase letter, one lowercase letter, one digit, and one special character.";
-                      } else if (value.length < 8) {
+                      } else if (value.length < 6) {
                         return " password atleast needed 8 characters";
                       } else {
                         return null;
                       }
                     },
-                    isPassword: true,
+                    // isPassword: true,
                     suffixIcon: Icons.visibility_off,
                   ),
                   SizedBox(
@@ -271,6 +273,7 @@ class StudentDetails extends StatelessWidget {
                     height: MediaQuery.of(context).size.height * 0.01,
                   ),
                   CustomTextFieldWidget(
+                    textInputAction: TextInputAction.done,
                     placeHolder: "Confirm your password",
                     textcontroller: confirmPasswordController,
                     validator: (value) {
@@ -280,7 +283,7 @@ class StudentDetails extends StatelessWidget {
                         return null;
                       }
                     },
-                    isPassword: true,
+                    // isPassword: true,
                     suffixIcon: Icons.visibility_off,
                   ),
                   SizedBox(

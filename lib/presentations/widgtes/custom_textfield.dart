@@ -9,7 +9,7 @@ class CustomTextFieldWidget extends StatefulWidget {
     this.suffixIcon,
     required this.textcontroller,
     this.keyboardType,
-    this.isPassword = false,
+    // this.isPassword = false,
     this.validator,
     this.maxLines,
   });
@@ -19,7 +19,7 @@ class CustomTextFieldWidget extends StatefulWidget {
   final IconData? suffixIcon;
   final TextEditingController textcontroller;
   final TextInputType? keyboardType;
-  final bool isPassword;
+  // final bool isPassword;
   final String? Function(String?)? validator;
 
   @override
@@ -27,12 +27,12 @@ class CustomTextFieldWidget extends StatefulWidget {
 }
 
 class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
-  bool passwordVisibility = false;
+  // bool passwordVisibility = false;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: widget.textcontroller,
-      obscureText: passwordVisibility,
+      // obscureText: passwordVisibility,
       validator: widget.validator,
       textInputAction: widget.textInputAction,
       decoration: InputDecoration(
@@ -40,21 +40,21 @@ class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
         border: const OutlineInputBorder(
           borderSide: BorderSide(color: tBlackColor),
         ),
-        suffixIcon: widget.isPassword
-            ? IconButton(
-                onPressed: () {
-                  setState(() {
-                    passwordVisibility = !passwordVisibility;
-                  });
-                },
-                icon: Icon(
-                  passwordVisibility
-                      ? Icons.visibility_off_outlined
-                      : Icons.visibility,
-                  color: tgreyColor,
-                ),
-              )
-            : null,
+        // suffixIcon: widget.isPassword
+        //     ? IconButton(
+        //         onPressed: () {
+        //           setState(() {
+        //             passwordVisibility = !passwordVisibility;
+        //           });
+        //         },
+        //         icon: Icon(
+        //           passwordVisibility
+        //               ? Icons.visibility_off_outlined
+        //               : Icons.visibility,
+        //           color: tgreyColor,
+        //         ),
+        //       )
+        //     : null,
         hintText: widget.placeHolder,
         filled: true,
         fillColor: tWhiteColor,
