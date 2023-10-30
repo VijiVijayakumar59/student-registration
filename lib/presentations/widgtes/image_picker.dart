@@ -12,8 +12,8 @@ class ImagePickerButton extends StatefulWidget {
 }
 
 class ImagePickerButtonState extends State<ImagePickerButton> {
-  PickedFile? pickedImage; // To store the picked image
-  String? imageName; // To store the image name
+  PickedFile? pickedImage;
+  String? imageName;
 
   Future<void> picksImage() async {
     final picker = ImagePicker();
@@ -22,7 +22,7 @@ class ImagePickerButtonState extends State<ImagePickerButton> {
     if (pickTheImage != null) {
       setState(() {
         pickedImage = PickedFile(pickTheImage.path);
-        imageName = p.basename(pickedImage!.path); // Get the image name
+        imageName = p.basename(pickedImage!.path);
       });
     }
   }
@@ -53,12 +53,12 @@ class ImagePickerButtonState extends State<ImagePickerButton> {
                 child: Image.file(
                   File(pickedImage!.path),
                 ),
-              ), // Display the picked image
+              ),
               Expanded(
                 child: Text(
                   '$imageName',
                 ),
-              ), // Display the image name
+              ),
             ],
           ),
       ],

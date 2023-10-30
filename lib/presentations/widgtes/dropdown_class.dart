@@ -20,7 +20,7 @@ class _DropDownClassButtonState extends State<DropDownClassButton> {
   @override
   void initState() {
     super.initState();
-    fetchData(); // Fetch data when the widget is initialized
+    fetchData(); 
   }
 
   Future<void> fetchData() async {
@@ -33,7 +33,7 @@ class _DropDownClassButtonState extends State<DropDownClassButton> {
     final Map<String, dynamic> data = {
       'institutionId': 32,
       'academicYearId':
-          '93', // Replace with the actual value you get from the first API
+          '93', 
     };
 
     final String requestBody = jsonEncode(data);
@@ -46,11 +46,10 @@ class _DropDownClassButtonState extends State<DropDownClassButton> {
       );
 
       if (response.statusCode == 200) {
-        // Request was successful
         final List<dynamic> responseData = json.decode(response.body);
         List<String> courseList = responseData.map((item) {
           return item['course']
-              .toString(); // Assuming 'course' is the field to be displayed
+              .toString(); 
         }).toList();
         log(courseList.toString());
         setState(() {
@@ -58,12 +57,10 @@ class _DropDownClassButtonState extends State<DropDownClassButton> {
           selectedValue = courseList.isNotEmpty ? courseList[0] : null;
         });
       } else {
-        // Request failed
         print('Request failed with status: ${response.statusCode}');
         print('Response data: ${response.body}');
       }
     } catch (e) {
-      // Handle any exceptions
       print('Error: $e');
     }
   }
